@@ -1,0 +1,7 @@
+FROM unit:1.32.1-php8.3
+
+COPY ./docker/unit-config.json /docker-entrypoint.d/unit-config.json
+
+COPY . /var/www/symfony
+
+WORKDIR /var/www/symfony

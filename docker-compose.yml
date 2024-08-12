@@ -1,0 +1,44 @@
+services:
+  php:
+    user: 1000:1000
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: symfony-php
+    volumes:
+      - .:/var/www/symfony
+    networks:
+      - symfony-network
+
+  unit:
+    build:
+      context: .
+      dockerfile: Dockerfile.unit
+    container_name: symfony-unit
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/var/www/symfony
+    depends_on:
+      - php
+    networks:
+      - symfony-network
+
+  db:
+    image: postgres:16
+    container_name: symfony-postgress
+    environment:
+      POSTGRES_DB: symfony
+      POSTGRES_USER: symfony
+      POSTGRES_PASSWORD: symfony
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - symfony-network
+
+networks:
+  symfony-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
