@@ -1,0 +1,75 @@
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+###< symfony/framework-bundle ###
+
+# Папка с зависимостями Composer
+/vendor/
+
+# Папка с зависимостями NPM
+/node_modules/
+
+# Папка с кэшем Symfony
+/var/
+
+# Логи Symfony
+/var/log/
+
+# Кэш Symfony
+/var/cache/
+
+# Локальные настройки
+/.env.local
+/.env.*.local
+/.env.local.php
+
+# Файлы конфигурации IDE
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# PhpStorm специфичные файлы
+.idea/*
+!/.idea/README.md
+.idea/.name
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/.gitignore
+.idea/dictionaries
+.idea/libraries
+.idea/php.xml
+.idea/encodings.xml
+.idea/runConfigurations/
+.idea/.idea_module
+.idea/inspectionProfiles/
+.idea/vcs.xml
+.idea/uiDesigner.xml
+.idea/modules.xml
+
+# Конфигурация Docker
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Файлы сборки
+/dist/
+/build/
+
+# Секретные файлы
+/.env
+
+# Настройки PHPUnit
+/phpunit.result.cache
+
+# Временные файлы
+*.log
+*.tmp
+*.swp
+
+# Файлы, создаваемые операционной системой
+.DS_Store
+Thumbs.db
+
+# Docker volumes
+.docker/
