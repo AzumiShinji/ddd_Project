@@ -46,7 +46,6 @@
 .idea/inspectionProfiles/
 .idea/vcs.xml
 .idea/uiDesigner.xml
-.idea/modules.xml
 
 # Конфигурация Docker
 docker-compose.override.yml
