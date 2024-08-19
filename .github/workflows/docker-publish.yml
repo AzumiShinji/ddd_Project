@@ -50,9 +50,6 @@ jobs:
         with:
           php-version: '8.2'
 
-      - name: Install dependencies
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader
-
       - name: Set environment variables
         env:
           APP_ENV: ${{ secrets.APP_ENV }}
@@ -62,6 +59,9 @@ jobs:
           echo "APP_ENV=${{ secrets.APP_ENV }}" >> .env
           echo "APP_SECRET=${{ secrets.APP_SECRET }}" >> .env
           echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
