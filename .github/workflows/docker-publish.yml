@@ -45,6 +45,11 @@ jobs:
         with:
           cosign-release: 'v2.2.4'
 
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
@@ -55,6 +60,7 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           echo "APP_ENV=${{ secrets.APP_ENV }}" >> .env
+          echo "APP_SECRET=${{ secrets.APP_SECRET }}" >> .env
           echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
 
       # Set up BuildKit Docker container builder to be able to build
