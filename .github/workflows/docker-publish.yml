@@ -45,6 +45,15 @@ jobs:
         with:
           cosign-release: 'v2.2.4'
 
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Set environment variables
+        env:
+          APP_ENV: ${{ secrets.APP_ENV }}
+          APP_SECRET: ${{ secrets.APP_SECRET }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
       # https://github.com/docker/setup-buildx-action
